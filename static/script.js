@@ -238,7 +238,7 @@ function checkCollision() {
     document.querySelector('canvas').style.display = 'none'
     document.querySelector('.result-game').style.display = 'flex'
     fetch("/score/", {
-      type: 'POST',
+      method: 'POST',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json; charset=UTF-8'
