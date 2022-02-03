@@ -1,0 +1,11 @@
+{
+  "apps": [
+    {
+      "name": "doodle",
+      "args": "runserver 0:8080",
+      "script": "manage.py",
+      "exec_mode": "fork",
+      "exec_interpreter": "env/bin/python"
+    }
+  ]
+}
