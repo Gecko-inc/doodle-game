@@ -11,7 +11,7 @@ class Score(models.Model):
     session = models.CharField("Сессия", max_length=130)
 
     class Meta:
-        ordering = ["-id"]
+        ordering = ["-score"]
         verbose_name = "Результат"
         verbose_name_plural = "Результаты"
 
@@ -23,7 +23,7 @@ class Score(models.Model):
         try:
             item = cls.objects.get(username=username)
             new_index = index + 1
-            return cls.get_username(username, index=new_index)
+            return get_random_string(length=21).upper()
         except cls.DoesNotExist:
             return username + f"({index})"
 
@@ -36,7 +36,6 @@ class Score(models.Model):
 
         if session:
             score_instance = cls.objects.filter(session=session).first()
-
         if not score_instance and username:
             if not session:
                 session = get_random_string(length=32).upper()
@@ -58,7 +57,6 @@ class Score(models.Model):
         if not session_key and not request.session.exists(request.session.session_key):
             request.session.create()
             session_key = request.session.session_key
-
         score = cls.get_score(session=session_key, username=username)
 
         return score
