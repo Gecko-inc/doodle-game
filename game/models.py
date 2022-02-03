@@ -19,6 +19,15 @@ class Score(models.Model):
         return f"#{self.id} {self.username}  {self.score}"
 
     @classmethod
+    def get_username(cls, username: str, index: int = 1) -> str:
+        try:
+            item = cls.objects.get(username=username)
+            new_index = index + 1
+            return cls.get_username(username, index=new_index)
+        except cls.DoesNotExist:
+            return username + f"({index})"
+
+    @classmethod
     def get_score(cls, session=None, username=None):
         """
           Метод получения результата на основе  уникального ключа.
@@ -33,7 +42,7 @@ class Score(models.Model):
                 session = get_random_string(length=32).upper()
             try:
                 item = cls.objects.get(username=username)
-                name = username + f"({len(cls.objects.filter(username=username))})"
+                name = cls.get_username(username)
                 score_instance = cls.objects.create(session=session, username=name)
             except cls.DoesNotExist:
                 score_instance = cls.objects.create(session=session, username=username)
