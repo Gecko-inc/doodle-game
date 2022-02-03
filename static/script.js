@@ -232,11 +232,19 @@ function checkCollision() {
     gameStarted = false;
     document.querySelector('canvas').style.display = 'none'
     document.querySelector('.result-game').style.display = 'flex'
-    document.querySelectorAll('.table-result__row').forEach((element, elementId, elementArr) => {
-      element.querySelector('.table-number').innerText = elementId+1
-      element.querySelector('.table-nick').innerHTML = 'Nick'
-      element.querySelector('.table-result').innerHTML = score
+    fetch(END_GAME_URL, {
+      type: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json; charset=UTF-8'
+      },
     })
+        .then(response => console.log(response))
+        .then(result => {
+          document.querySelector('.result-game').innerHTML = result
+        })
+        .catch(error => console.log('error', error));
+
     platformList = [];
   }
     
