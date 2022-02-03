@@ -268,6 +268,10 @@ function checkCollision() {
             document.querySelector('canvas').style.display = 'block'
             draw()
           })
+
+          document.querySelectorAll('.table-result__row').forEach((element, elementId, elementArr) => {
+            element.querySelector('.table-number').innerHTML = elementId+1
+          })
         })
         .catch(function (error) {
           console.log('error', error)
@@ -279,6 +283,7 @@ function checkCollision() {
         //   console.log(result)
         //   document.querySelector('.result-game').innerHTML = JSON.parse(result)
         // })
+
 
     platformList = [];
   }
