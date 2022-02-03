@@ -23,6 +23,7 @@ class Index(TemplateView):
                 score.score = int(data.get('score'))
                 score.save()
 
+        print(len(Score.objects.all()))
         html = render_to_string("include/result.html", context={
             "score": Score.objects.all()
         })

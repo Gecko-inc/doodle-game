@@ -232,7 +232,7 @@ function checkCollision() {
     gameStarted = false;
     document.querySelector('canvas').style.display = 'none'
     document.querySelector('.result-game').style.display = 'flex'
-    fetch(END_GAME_URL, {
+    fetch("/score/", {
       type: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -241,7 +241,7 @@ function checkCollision() {
     })
         .then(response => console.log(response))
         .then(result => {
-          document.querySelector('.result-game').innerHTML = result
+          document.querySelector('.result-game').innerHTML = JSON.parse(result).html
         })
         .catch(error => console.log('error', error));
 
