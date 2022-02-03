@@ -212,6 +212,11 @@ function Platform(newPlatformYPosition) {
 // ===========================
 //  Collisions
 // ===========================
+
+var userName
+document.querySelector('.input-name').addEventListener('input', function(e){
+  userName = this.value
+})
 function checkCollision() {
   platformList.forEach(function(plat) {
     if(
@@ -238,10 +243,14 @@ function checkCollision() {
         'Accept': 'application/json',
         'Content-Type': 'application/json; charset=UTF-8'
       },
+      body: JSON.stringify({
+        score: score,
+        username: userName,
+      })
     })
         .then(response => console.log(response))
         .then(result => {
-          document.querySelector('.result-game').innerHTML = result
+          document.querySelector('.result-game').innerHTML = `${result}`
         })
         .catch(error => console.log('error', error));
 
@@ -256,6 +265,8 @@ function checkCollision() {
     doodlerX = -doodlerSize;
   }
 }
+
+
 
 document.querySelector('.result-game__menu').addEventListener('click', function(){
   document.querySelector('.register-screen').style.display = 'flex'
