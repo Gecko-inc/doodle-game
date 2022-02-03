@@ -253,6 +253,19 @@ function checkCollision() {
         })
         .then(function (data) {
           document.querySelector('.result-game').innerHTML = data.html
+
+          document.querySelector('.result-game__menu').addEventListener('click', function(){
+            document.querySelector('.register-screen').style.display = 'flex'
+            document.querySelector('.register-screen__form').style.display = 'flex'
+            document.querySelector('.skins-screen').style.display = 'none'
+            document.querySelector('.result-game').style.display = 'none'
+          })
+
+          document.querySelector('.result-game__restart').addEventListener('click', function(){
+            document.querySelector('.result-game').style.display = 'none'
+            document.querySelector('canvas').style.display = 'block'
+            draw()
+          })
         })
         .catch(function (error) {
           console.log('error', error)
@@ -276,16 +289,3 @@ function checkCollision() {
     doodlerX = -doodlerSize;
   }
 }
-
-
-
-document.querySelector('.result-game__menu').addEventListener('click', function(){
-  document.querySelector('.register-screen').style.display = 'flex'
-  document.querySelector('.result-game').style.display = 'none'
-})
-
-document.querySelector('.result-game__restart').addEventListener('click', function(){
-  document.querySelector('.result-game').style.display = 'none'
-  document.querySelector('canvas').style.display = 'block'
-  draw()
-})
