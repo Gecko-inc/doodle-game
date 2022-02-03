@@ -195,6 +195,7 @@ function drawPlatforms() {
 
     if(plat.yPos > 600) {
       score++;
+      document.querySelector('.score-counter').innerHTML = score
       platformList.pop();
       var newPlat = new Platform(0);
       platformList.unshift(newPlat); // add to front
@@ -237,6 +238,7 @@ function checkCollision() {
     gameStarted = false;
     document.querySelector('canvas').style.display = 'none'
     document.querySelector('.result-game').style.display = 'flex'
+    document.querySelector('.score-counter').innerHTML = ''
     fetch("/score/", {
       method: 'POST',
       headers: {
