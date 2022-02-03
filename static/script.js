@@ -248,11 +248,23 @@ function checkCollision() {
         username: userName,
       })
     })
-        .then(response => console.log(response))
-        .then(data => {
-          document.querySelector('.result-game').innerHTML = JSON.parse(data).html
+        .then(function (response) {
+          return response.json()
         })
-        .catch(error => console.log('error', error));
+        .then(function (data) {
+          console.log(data)
+          document.querySelector('.result-game').innerHTML = data.html
+        })
+        .catch(function (error) {
+          console.log('error', error)
+        })
+        // .then(response => {
+        //   response.json().then(function (data) {console.log('data', data)})
+        // })
+        // .then(result => {
+        //   console.log(result)
+        //   document.querySelector('.result-game').innerHTML = JSON.parse(result)
+        // })
 
     platformList = [];
   }
