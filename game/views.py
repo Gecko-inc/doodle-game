@@ -17,7 +17,7 @@ class Index(TemplateView):
     @classmethod
     def end_game(cls, request):
         data = request.POST
-        score = Score.score_by_request(request=request, username=data.get("username"))
+        score = Score.score_by_request(request=request, username=data.get("username", "unknown"))
         if score:
             if score.score < int(data.get('score')):
                 score.score = int(data.get('score'))
