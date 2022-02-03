@@ -6,4 +6,5 @@ app_name = "game"
 
 urlpatterns = [
     path("", Index.as_view(), name="index"),
+    path("score/", Index.end_game, name="end_game"),
 ]

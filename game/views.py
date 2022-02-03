@@ -1,3 +1,4 @@
+from django.http import JsonResponse
 from django.template.loader import render_to_string
 from django.views.generic import TemplateView
 
@@ -11,6 +12,8 @@ class Index(TemplateView):
         context = super(Index, self).get_context_data(**kwargs)
         context['username'] = Score.score_by_request(request=self.request)
 
+        return context
+
     @classmethod
     def end_game(cls, request):
         data = request.POST
@@ -23,3 +26,6 @@ class Index(TemplateView):
         html = render_to_string("include/result.html", context={
             "score": Score.objects.all()
         })
+        return JsonResponse(
+            {'html': html}
+        )
