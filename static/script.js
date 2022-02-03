@@ -249,8 +249,8 @@ function checkCollision() {
       })
     })
         .then(response => console.log(response))
-        .then(result => {
-          document.querySelector('.result-game').innerHTML = JSON.parse(result).html
+        .then(data => {
+          document.querySelector('.result-game').innerHTML = JSON.parse(data).html
         })
         .catch(error => console.log('error', error));
 

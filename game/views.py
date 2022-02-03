@@ -1,3 +1,5 @@
+import json
+
 from django.http import JsonResponse
 from django.template.loader import render_to_string
 from django.views.generic import TemplateView
@@ -16,17 +18,17 @@ class Index(TemplateView):
 
     @classmethod
     def end_game(cls, request):
-        data = request.POST
+        data = json.loads(request.body.decode())
         score = Score.score_by_request(request=request, username=data.get("username", "unknown"))
         if score:
             if score.score < int(data.get('score')):
                 score.score = int(data.get('score'))
                 score.save()
-
-        print(len(Score.objects.all()))
-        html = render_to_string("include/result.html", context={
-            "score": Score.objects.all()
+        html = render_to_string("include/result.html", {
+            "score": Score.objects.all(),
         })
         return JsonResponse(
-            {'html': html}
+            {
+                'html': html
+            }
         )
