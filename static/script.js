@@ -252,7 +252,6 @@ function checkCollision() {
           return response.json()
         })
         .then(function (data) {
-          console.log(data)
           document.querySelector('.result-game').innerHTML = data.html
         })
         .catch(function (error) {
