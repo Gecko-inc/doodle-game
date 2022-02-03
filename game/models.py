@@ -19,13 +19,12 @@ class Score(models.Model):
         return f"#{self.id} {self.username}  {self.score}"
 
     @classmethod
-    def get_username(cls, username: str, index: int = 1) -> str:
+    def get_username(cls, username: str) -> str:
         try:
             item = cls.objects.get(username=username)
-            new_index = index + 1
             return get_random_string(length=21).upper()
         except cls.DoesNotExist:
-            return username + f"({index})"
+            return username + f"(1)"
 
     @classmethod
     def get_score(cls, session=None, username=None):
