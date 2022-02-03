@@ -240,7 +240,9 @@ function checkCollision() {
       },
     })
         .then(response => console.log(response))
-        .then(result => console.log(result))
+        .then(result => {
+          document.querySelector('.result-game').innerHTML = result
+        })
         .catch(error => console.log('error', error));
 
     platformList = [];
