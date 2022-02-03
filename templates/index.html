@@ -1,0 +1,61 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Doodle Mutant-Shiba</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+<body>
+
+    <div class="register-screen">
+        <div class="register-screen__form">
+            <h1 class="register-screen__form-title">
+                Doodle Mutant-Shiba
+            </h1>
+            <p class="name-title">NAME</p>
+            <input class="input-name" type="text" name="username" value="{{ username }}">
+            <button class="skins-game">SKINS</button>
+            <button class="start-game">GAME</button>
+        </div>
+        <div class="skins-screen">
+            <h2>Select a skin</h2>
+
+            <div class="skin-items">
+                <div class="skin-item">
+                    <p>selected</p>
+                    <img src="{% static 'img/2.png' %}" alt="" data-skin='1'>
+                </div>
+                <div class="skin-item">
+                    <p></p>
+                    <img src="{% static 'img/3.1.png' %}" alt="" data-skin='2'>
+                </div>
+            </div>
+
+            <button class="back">BACK</button>
+            <button class="start-game">GAME</button>
+        </div>
+    </div>
+
+    <div class="result-game">
+        {% include 'include/result.html' %}
+    </div>
+
+    <div class="social-link">
+        <a href="https://www.mutantshiba.club/">
+            <img src="{% static 'img/disсord.png' %}" alt="discord">
+        </a>
+        <a href="https://www.instagram.com/mutantshibaclub/">
+            <img src="{% static 'img/inst.png' %}" alt="inst">
+        </a>
+        <a href="https://twitter.com/MutantShibaClub">
+            <img src="{% static 'img/twitter.png' %}" alt="twitter">
+        </a>
+    </div>
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.16/p5.js'></script><script  src="{% static 'script.js' %}"></script>
+</body>
+</html>

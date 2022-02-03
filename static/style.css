@@ -1,0 +1,303 @@
+/* Указываем box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Убираем внутренние отступы */
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+/* Убираем внешние отступы */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Выставляем основные настройки по-умолчанию для body */
+body {
+  height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+/* Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Упрощаем работу с изображениями */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Указываем понятную периодичность в потоке данных у article*/
+article > * + * {
+  margin-top: 1em;
+}
+
+/* Наследуем шрифты для инпутов и кнопок */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Удаляем все анимации и переходы для людей, которые предпочитай их не использовать */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+canvas{
+    border: 1px solid #26FF00;
+    display: block;
+    margin: 7% auto;
+    cursor: pointer;
+    box-shadow: 0px 0px 42px -10px #26FF00;
+}
+
+body {
+  background: url('background.gif');
+  overflow: hidden;
+}
+
+.register-screen {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 4%;
+}
+
+canvas{
+    display: none;
+}
+
+
+.register-screen__form{
+    padding: 20px 7vw;
+    background-color: #181818;
+    background-image: url('./appBG.760b1a8a31c22ddc81da.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    max-width: 600px;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.register-screen__form-title {
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.name-title {
+    font-size: 18px;
+    font-family: 'Montserrat', sans-serif;
+    color: #fff;
+}
+
+.register-screen__form input{
+    margin-bottom: 10px;
+}
+
+.skins-screen {
+    display: none;
+}
+
+.skins-screen {
+    padding: 20px 10vw;
+    background-color: #181818;
+    background-image: url('./appBG.760b1a8a31c22ddc81da.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    max-width: 600px;
+    width: 100%;
+    display: none;
+    flex-direction: column;
+}
+
+.skins-screen h2 {
+    font-size: 32px;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    color: #fff;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.skin-items {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.skin-item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    cursor: pointer;
+}
+
+.skin-item p{
+    font-size: 14px;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.skins-game {
+  background-color: #00dd59;
+  margin-bottom: 5px;
+
+  border-radius: 8px;
+  border: 0;
+  font-size: 18px;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+  color: #fff;
+  cursor: pointer;
+  padding: 7px 0;
+}
+
+.start-game {
+  background-color: #00dd59;
+  margin-bottom: 5px;
+
+  border-radius: 8px;
+  border: 0;
+  font-size: 18px;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+  color: #fff;
+  cursor: pointer;
+  padding: 7px 0;
+}
+
+.input-name {
+  outline: none;
+  border-radius: 8px;
+  border: 0;
+  padding: 3px 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+}
+
+.back {
+  background-color: #00dd59;
+  margin-bottom: 5px;
+
+  border-radius: 8px;
+  border: 0;
+  font-size: 18px;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+  color: #fff;
+  cursor: pointer;
+  padding: 7px 0;
+}
+
+
+.result-game {
+  width: 100%;
+  height: 100vh;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.result-game__content {
+  padding: 20px 7vw;
+    background-color: #181818;
+    background-image: url('./appBG.760b1a8a31c22ddc81da.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    max-width: 600px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+table {
+  margin-bottom: 10px;
+}
+
+.result-game__content table th{
+  text-align: left;
+  font-size: 21px;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+  color: #00dd59;
+}
+
+table { border-collapse: collapse; }
+
+.table-result__row {
+  border-bottom: 1px solid #00dd59;
+}
+
+.table-result__row td  {
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+  color: #fff;
+  font-size: 18px;
+}
+
+.result-game__content button{
+  background-color: #00dd59;
+  margin-bottom: 5px;
+  border-radius: 8px;
+  border: 0;
+  font-size: 18px;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+  color: #fff;
+  cursor: pointer;
+  padding: 7px 0;
+}
+
+.social-link{
+  position: fixed;
+  top: 20px;
+  right: 4%;
+
+  display: flex;
+  gap: 30px;
+}

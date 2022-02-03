@@ -1,0 +1,19 @@
+<div class="result-game__content">
+            <table>
+                <tr>
+                    <th>№</th>
+                    <th>Nick</th>
+                    <th>Result</th>
+                </tr>
+                {% for item in score %}
+                <tr class="table-result__row">
+                    <td class="table-number">{{ item.id }}</td>
+                    <td class="table-nick">{{ item.username }}</td>
+                    <td class="table-result">{{ item.score }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+
+            <button class="result-game__menu">MENU</button>
+            <button class="result-game__restart">RESTART</button>
+        </div>
